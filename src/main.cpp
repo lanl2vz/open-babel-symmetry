@@ -1,5 +1,8 @@
 #include <openbabel/obconversion.h>
 #include <openbabel/mol.h>
+#include <openbabel/generic.h>
+#include <openbabel/graphsym.h>
+#include <openbabel/atom.h>
 #include <fstream>
 #include <iostream>
 
@@ -30,6 +33,21 @@ int main()
   {
     std::cerr << "Error: Failed to read molecule.sdf" << std::endl;
     return 1;
+  }
+
+  OBGraphSym symmetry(&obmol);
+  std::vector<unsigned int> symmetry_classes;
+  std::cout << "Point Group: " << symmetry.GetSymmetry(symmetry_classes) << std::endl;
+  for (auto &sym_class : symmetry_classes)
+  {
+    std::cout << sym_class << " ";
+  }
+
+  std::cout << std::endl;
+
+  for (size_t i = 0; i < obmol.NumAtoms(); i++)
+  {
+    std::cout << "Atom " << obmol.GetAtomById(i)->GetAtomicNum() << ", ID: " << i << " is in symmetry class " << symmetry_classes[i] << std::endl;
   }
 
   return 0;
