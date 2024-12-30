@@ -23,4 +23,4 @@ add_subdirectory(src)
 # Link raylib and other libraries to your project
 target_link_libraries(main ${OpenBabel3_LIBRARIES})
 
-target_compile_features(main PRIVATE cxx_std_17)
+target_compile_features(main PRIVATE cxx_std_11)

@@ -9,7 +9,7 @@ int main()
   OBConversion conv;
   conv.SetInFormat("sdf");
 
-  std::ifstream ifs("molecule.sdf");
+  std::ifstream ifs("../resource/molecule.sdf");
   OBMol obmol;
   conv.Read(&obmol, &ifs);
 
