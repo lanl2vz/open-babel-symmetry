@@ -4,9 +4,12 @@
 
 using namespace OpenBabel;
 
-int main() {
+int main()
+{
   OBConversion conv;
   conv.SetInFormat("sdf");
+
+  std::ifstream ifs("molecule.sdf");
   OBMol obmol;
   conv.Read(&obmol, &ifs);
 
