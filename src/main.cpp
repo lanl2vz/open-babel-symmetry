@@ -10,11 +10,11 @@ int main()
   OBConversion conv;
   conv.SetInFormat("sdf");
 
-  std::ifstream ifs("molecule.sdf");
+  std::ifstream ifs("/Users/lanl2tz/Documents/GitHub/lanl2tz/open-babel-symmetry/resource/molecule.sdf");
   if (!ifs)
   {
     std::cerr << "Error: Failed to open molecule.sdf" << std::endl;
-    if (std::ifstream("molecule.sdf").fail())
+    if (std::ifstream("/Users/lanl2tz/Documents/GitHub/lanl2tz/open-babel-symmetry/resource/molecule.sdf").fail())
     {
       std::cerr << "File does not exist or is inaccessible." << std::endl;
     }
